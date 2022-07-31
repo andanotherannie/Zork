@@ -1,0 +1,192 @@
+# loop 0 -- west trees
+# loop 1 -- cabin
+# loop 2 --  start
+# loop 3 --  east trees
+# loop 4 -- bridge
+# loop 5 -- bunker
+# loop 6 -- inside cabin
+# loop 7 -- inside UFO
+
+print("---------------------------------------------------------")
+print("Welcome to ROKZ.")
+
+while True:
+    loop = 2
+    doorOpened = 0
+    bunkerOpened = 0
+    # Start
+    while loop == 2:
+        if loop == 2:
+            print("---------------------------------------------------------")
+            print("You have gone hiking, but have now found yourself lost.")
+            print("To your west appears to be a cabin, and to your east there seems to be more trees.")
+            print("The shrubbery is too thick to walk through in the other directions")
+            first = input("What do you do?")
+            if first.lower() == "go east":
+                print("---------------------------------------------------------")
+                loop += 1
+            elif first.lower() == "go west":
+                print("---------------------------------------------------------")
+                loop -= 1
+        else:
+            print("----------------------------------------------------------")
+    # East Trees
+    while loop == 3:
+        if loop == 3:
+            print("---------------------------------------------------------")
+            print("You are surrounded by trees that all look the same.")
+            print("To your west is where you started. To your east there appears to be a bridge.")
+            print("It looks like there is another person on the bridge.")
+            second = input("What do you do?")
+            if second.lower() == "go east":
+                print("---------------------------------------------------------")
+                loop += 1
+            elif second.lower() == "go west":
+                print("---------------------------------------------------------")
+                loop -= 1
+            else:
+                print("----------------------------------------------------------")
+    # Bridge
+    while loop == 4:
+        if loop == 4:
+            print("---------------------------------------------------------")
+            print("You have arrived at a bridge made of stone.")
+            print("Water rushes underneath it.")
+            print("There looks to be a person on the bridge.")
+            third = input("What do you do?")
+            if third.lower() == "go east":
+                print("---------------------------------------------------------")
+                loop += 1
+            elif third.lower() == "go west":
+                print("---------------------------------------------------------")
+                loop -= 1
+            else:
+                print("----------------------------------------------------------")
+    # Bunker
+    while loop == 5:
+        if loop == 5:
+            print("---------------------------------------------------------")
+            print("Walking through the trees you hear a clanking sound where you step.")
+            print("It appears you have stepped on something, a door of some kind...")
+            fourth = input("What do you do?")
+            if fourth.lower() == "go east":
+                print("The trees are too thick to go east.")
+                print("---------------------------------------------------------")
+            elif fourth.lower() == "go west":
+                print("---------------------------------------------------------")
+                loop -= 1
+            elif fourth.lower() == "open door":
+                if bunkerOpened == 1:
+                    print("You open the door and enter the bunker.")
+                    loop == 7
+                else:
+                    bunkerCode = input("The door has a lock with a four digit code. Please type the code")
+                    if bunkerCode.lower() == "5284":
+                        print("The lock opens, and you enter the bunker.")
+                        loop == 7
+                        bunkerOpened += 1
+                    elif bunkerCode.lower() == "exit":
+                        loop == 5
+                    else:
+                        print("That code doesn't seem to work...")
+            else:
+                print("----------------------------------------------------------")
+    # Cabin
+    while loop == 1:
+        if loop == 1:
+            print("---------------------------------------------------------")
+            print("The cabin seems to be abandoned.")
+            print("The windows seem to be boarded up, and trees have grown over the roof.")
+            print("The door appears to have a lock on it.")
+            fifth = input("What do you do?")
+            if fifth.lower() == "go east":
+                print("The trees are too thick to go east.")
+                print("---------------------------------------------------------")
+            elif fifth.lower() == "go west":
+                print("---------------------------------------------------------")
+                loop -= 1
+            elif fifth.lower() == "open door":
+                if doorOpened == 1:
+                    print("You open the door and enter the cabin.")
+                    loop +=5
+                else:
+                    doorCode = input("The door has a lock with a four digit code. Please type the code")
+                    if doorCode.lower() == "5284":
+                        doorOpened += 1
+                        print("The lock opens and falls to the floor. You enter the house.")
+                        loop += 5
+                    elif doorCode.lower() == "exit":
+                        loop == 1
+                    else:
+                        print("That code doesn't seem to work...")
+            else:
+                print("----------------------------------------------------------")
+                loop = -1
+    # West Trees
+    while loop == 0:
+        if loop == 0:
+            print("---------------------------------------------------------")
+            print("You are in the thick of the forest, but one tree appears to stand out.")
+            print("It looks as though something is carved into a trunk.")
+            sixth = input("What do you do?")
+            if sixth.lower() == "go east":
+                print("---------------------------------------------------------")
+                loop += 1
+            elif sixth.lower() == "go west":
+                print("The trees are too thick to go west.")
+                print("---------------------------------------------------------")
+            elif sixth.lower() == "look at tree":
+                print("|_42__1__3_|")
+        else:
+            print("----------------------------------------------------------")
+    # Inside Cabin
+    while loop == 6:
+        if loop == 6:
+            print("---------------------------------------------------------")
+            print("You are inside the cabin. There is a computer, a note on a table, and on the wall in front of you there is a picture.")
+            cabin = input("What do you do?")
+            if cabin.lower() == "look at picture":
+                print(r"""  
+                             ___
+                         ___/   \___
+                        /   '---'   \
+                        '--_______--'
+                             / \
+                            /   \
+                           /     \
+                          /       \
+                          """)
+            elif cabin.lower() == "use computer":
+                print()
+            elif cabin.lower() == "read note":
+                print("They are real. I saw them.")
+                print("I have proof. The pictures, and what I saw on my computer.")
+            elif cabin.lower() == "leave cabin":
+                print("You have exited the cabin.")
+                loop -= 5
+            else:
+                print("---------------------------------------------------------")
+    # Inside Bunker
+    while loop == 7:
+        if loop == 7:
+            print("---------------------------------------------------------")
+            print("You are inside the bunker, and the place is trashed.")
+            print("It looks like someone left here in a hurry.")
+            print("There is a computer, a sign, and a note.")
+            bunker = input("What do you do?")
+            if bunker.lower() == "look at sign":
+                print("""
+                ....###....##.......####.########.##....##..######........###....########..########....########..########....###....##......
+                ...##.##...##........##..##.......###...##.##....##......##.##...##.....##.##..........##.....##.##.........##.##...##......
+                ..##...##..##........##..##.......####..##.##...........##...##..##.....##.##..........##.....##.##........##...##..##......
+                .##.....##.##........##..######...##.##.##..######.....##.....##.########..######......########..######...##.....##.##......
+                .#########.##........##..##.......##..####.......##....#########.##...##...##..........##...##...##.......#########.##......
+                .##.....##.##........##..##.......##...###.##....##....##.....##.##....##..##..........##....##..##.......##.....##.##......
+                .##.....##.########.####.########.##....##..######.....##.....##.##.....##.########....##.....##.########.##.....##.########
+            """) 
+            elif bunker.lower() == "use computer":
+                computerPassword = input("Please enter password:")
+            elif bunker.lower() == "read note":
+                print("01101110 01101111 01110100 01100011 01110010 01100001 01111010 01111001")
+            else:
+                print("---------------------------------------------------------")
